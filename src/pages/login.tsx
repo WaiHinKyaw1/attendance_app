@@ -28,7 +28,7 @@ export default function Login() {
     }
 
     setLoading(false)
-    router.push('/dashboard') // Dashboard page ကို redirect
+    router.push('/dashboard')
   }
 
   return (

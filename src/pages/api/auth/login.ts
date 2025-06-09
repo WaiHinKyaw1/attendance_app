@@ -1,5 +1,3 @@
-// pages/api/auth/login.ts
-
 import type { NextApiRequest, NextApiResponse } from 'next'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
@@ -25,12 +23,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     process.env.JWT_SECRET!,
     { expiresIn: '1d' }
   )
-
-  // Set cookie manually
   res.setHeader('Set-Cookie', serialize('token', token, {
     httpOnly: true,
     path: '/',
-    maxAge: 60 * 60 * 24 // 1 day
+    maxAge: 60 * 60 * 24 
   }))
 
   return res.status(200).json({ message: 'Login successful' })
